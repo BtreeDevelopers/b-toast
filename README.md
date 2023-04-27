@@ -1,5 +1,8 @@
 # b-toast
 
+## NPM
+https://www.npmjs.com/package/b-toast
+
 ## Demonstração
 
 Precisa de exemplos: [demonstração](.)
