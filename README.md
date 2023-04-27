@@ -1,24 +1,41 @@
 # b-toast
 
-## Project setup
+## Demonstração
+
+Precisa de exemplos: [demonstração](.)
+
+## Instalação
+
 ```
-npm install
+$ npm install b-toast
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+## Uso
+
+### Registro do plugin
+
+Adicione o plugin a sua aplicação:
+
+```javascript
+import { createApp } from "vue";
+import bToast from "b-toast";
+// Importe o css do Toast
+import "b-toast/dist/bToast.css";
+
+const options = {
+  // Você pode setar as opções padrões aqui
+};
+
+Vue.use(Toast, options);
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+E apenas chame ele no seu componente
 
-### Lints and fixes files
-```
-npm run lint
-```
+```javascript
+this.$btoast("I'm a toast!");
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+// Ou com opções
+this.$btoast("My toast content", {
+  isDark: true,
+});
+```

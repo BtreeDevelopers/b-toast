@@ -1,19 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p class="teste">teste</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  mounted() {
+    this.$btoast("aaaaa");
+    this.$btoast("aaaaa", { isDark: false, duration: 100000000000 });
+  },
+};
 </script>
 
 <style lang="scss">

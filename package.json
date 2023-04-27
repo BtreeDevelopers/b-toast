@@ -1,12 +1,21 @@
 {
   "name": "b-toast",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.13",
+  "private": false,
+  "main": "./dist/bToast.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:npm": "vue-cli-service build --target lib --name bToast src/index.js"
   },
+  "files": [
+    "dist/*",
+    "index.d.ts",
+    "src/assets/*",
+    "src/components/toast/*"
+  ],
+  "types": "index.d.ts",
   "dependencies": {
     "vue": "^2.6.14"
   },
