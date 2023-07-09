@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     animationEnded() {
-      console.log("aa");
+      // console.log("aa");
     },
   },
   computed: {

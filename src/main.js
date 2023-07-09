@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
-import bToast from "../dist/bToast.common.js";
-import "../dist/bToast.css";
+import bToast from "./index";
+import "./assets/global.scss";
 
 Vue.config.productionTip = false;
 Vue.use(bToast, {

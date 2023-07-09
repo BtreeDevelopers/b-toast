@@ -1,4 +1,14 @@
 # b-toast
+> Uma biblioteca de toasts para Vue 2
+
+O `b-toast` é uma biblioteca de toasts simples e personalizáveis para Vue 2. Ele fornece um componente Vue fácil de usar para exibir notificações no estilo toast em seu aplicativo.
+
+## Recursos
+
+- Exibe notificações de estilo toast de forma simples e elegante.
+- Personalizável para atender às necessidades do seu aplicativo.
+- Suporte a tipos de toasts: sucesso, erro, aviso, informativo, etc.
+- Fácil integração com projetos Vue 2 existentes.
 
 ## NPM
 https://www.npmjs.com/package/b-toast
@@ -9,7 +19,7 @@ Precisa de exemplos: [demonstração](.)
 
 ## Instalação
 
-```
+```bash
 $ npm install b-toast
 ```
 
@@ -17,7 +27,7 @@ $ npm install b-toast
 
 ### Registro do plugin
 
-Adicione o plugin a sua aplicação:
+Registre o componente `b-toast` globalmente em seu aplicativo Vue:
 
 ```javascript
 import { createApp } from "vue";
@@ -32,13 +42,54 @@ const options = {
 Vue.use(Toast, options);
 ```
 
-E apenas chame ele no seu componente
+Em seguida, você pode usar o componente `b-toast` em qualquer lugar em seu aplicativo:
 
 ```javascript
-this.$btoast("I'm a toast!");
+this.$btoast("Olá sou um toast!");
 
 // Ou com opções
-this.$btoast("My toast content", {
+const id = this.$btoast("Conteúdo do toast", {
   isDark: true,
 });
+// Ao invocar o toast, é retornado um ID único que 
+// pode ser usado para removê-lo da tela, se necessário.
+
+
+
+//Removendo todos os toasts
+this.$btoast.clear();
+
+//Removendo um dos toasts (por id)
+this.$btoast.dismiss(id);
+
+
 ```
+
+#### `this.$btoast(conteudo,?props)`
+
+#### `this.$btoast.clear()`
+
+#### `this.$toast.dismiss(id)`
+
+## Props
+
+Aqui estão as propriedades disponíveis para o componente `b-toast`:
+
+| Atributo    |   Tipo   |    Inicial     | Descrição                                                                   |
+|:-------------|:--------:|:--------------:|:------------------------------------------------------------------------------|
+| content      |  String  |       --       | Define o conteúdo no toast. (requerido) |
+| type         |  String  |   `success`    | Oefine o tipo de toast. Pode ser `success`, `error`, `warning`, `info`, ou qualquer outro tipo personalizado.|
+| duration     |  Number  |     `3000`     | Define a duração em milissegundos que o toast ficará visível antes de ser fechado automaticamente. Padrão: `5000` (5 segundos).|
+| isDark  | Boolean  |     `false`     | Define o tema padrão do toast. Padrão: `false`.|
+
+
+## Design Baseado em Pine UI
+
+O design deste projeto de toasts, `b-toast`, foi desenvolvido com base no Pine UI, um design system moderno e flexível para design de front-end. O Pine UI fornece um conjunto abrangente de componentes e estilos consistentes que ajudaram a moldar a aparência e a experiência do b-toast.
+
+Para obter mais informações sobre o Pine UI, você pode visitar o [Pine UI](https://www.behance.net/gallery/161882269/Design-System-Pine-UI-v1-bTree) e explorar os recursos e a documentação fornecidos.
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
+
