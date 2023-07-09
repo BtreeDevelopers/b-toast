@@ -7,7 +7,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build:npm": "vue-cli-service build --target lib --name bToast src/index.js"
+    "build:npm": "vue-cli-service build --target lib --name bToast src/index.js",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "files": [
     "dist/*",
