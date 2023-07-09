@@ -15,7 +15,7 @@ https://www.npmjs.com/package/b-toast
 
 ## Demonstração
 
-Precisa de exemplos: [demonstração](.)
+Precisa de exemplos: [demonstração](https://btreedevelopers.github.io/b-toast/)
 
 ## Instalação
 
