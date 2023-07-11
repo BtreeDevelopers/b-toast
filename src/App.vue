@@ -38,6 +38,7 @@
         Fechar Todos
       </button>
       <button class="btn" @click="showToast">Mostrar Toast</button>
+      <button class="btn" @click="showAllToast">Mostrar Todos Toasts</button>
     </div>
 
     <!-- <div class="code-container">
@@ -77,6 +78,22 @@ export default {
     };
   },
   methods: {
+    showAllToast(){
+      this.$btoast("Exemplo de toast sucesso", {
+        type: "success",
+      });
+      this.$btoast("Exemplo de toast erro", {
+        type: "error",
+        isDark:false
+      });
+      this.$btoast("Exemplo de toast warning", {
+        type: "warning",
+      });
+      this.$btoast("Exemplo de toast info", {
+        type: "info",
+        isDark:false
+      });
+    },
     showToast() {
       this.$btoast(this.toastMessage, {
         type: this.selectedType,

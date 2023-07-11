@@ -1,6 +1,6 @@
 {
   "name": "b-toast",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "main": "./dist/bToast.common.js",
   "scripts": {
@@ -17,6 +17,20 @@
     "src/components/toast/*"
   ],
   "types": "index.d.ts",
+  "homepage": "btreedevelopers.github.io/b-toast/",
+  "license": "MIT",
+  "author": "btree <btreedevs@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BtreeDevelopers/b-toast"
+  },
+  "keywords": [
+    "pine",
+    "toast",
+    "vue3",
+    "vue",
+    "vuejs"
+  ],
   "dependencies": {
     "vue": "^2.6.14"
   },

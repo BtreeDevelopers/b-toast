@@ -3,6 +3,8 @@
 
 O `b-toast` é uma biblioteca de toasts simples e personalizáveis para Vue 2. Ele fornece um componente Vue fácil de usar para exibir notificações no estilo toast em seu aplicativo.
 
+![](./example.gif)
+
 ## Recursos
 
 - Exibe notificações de estilo toast de forma simples e elegante.
