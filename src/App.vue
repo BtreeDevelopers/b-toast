@@ -1,66 +1,58 @@
 <template>
   <div class="playground-container">
-    <h1>Demonstração do b-toast</h1>
-
-    <div class="options-container">
-      <div class="option">
-        <label for="toast-type">Tipo de Toast:</label>
-        <select id="toast-type" v-model="selectedType">
-          <option value="success">Sucesso</option>
-          <option value="error">Erro</option>
-          <option value="warning">Aviso</option>
-          <option value="info">Informativo</option>
-        </select>
+    <h1 class="playground-title">Demonstração do bToast</h1>
+    <div class="plaground-inputs">
+      <div class="input-base">
+        <p-select
+          class="margin-bottom"
+          label="Tipo de Toast"
+          v-model="selectedType"
+          :items="['success', 'error', 'warning', 'info']"
+        ></p-select>
+        <p-select
+          label="Posição"
+          v-model="position"
+          :items="['top-right']"
+        ></p-select>
       </div>
-
-      <div class="option">
-        <label for="dark-mode">Modo Escuro:</label>
-        <input type="checkbox" id="dark-mode" v-model="darkMode" />
+      <div class="input-base">
+        <p-select
+          class="margin-bottom"
+          label="Tema"
+          v-model="theme"
+          :items="['dark', 'light']"
+        ></p-select>
+        <p-slider v-model="toastDurationSec" label="Duração"></p-slider>
+        <div class="slider-select">
+          <p :style="{ width: toastDurationSec + 3 + '%' }">{{ cmpSec }}s</p>
+        </div>
       </div>
-
-      <div class="option">
-        <label for="toast-message">Mensagem:</label>
-        <input type="text" id="toast-message" v-model="toastMessage" />
-      </div>
-
-      <div class="option">
-        <label for="toast-duration">Duração (ms):</label>
-        <input
-          type="number"
-          id="toast-duration"
-          v-model.number="toastDuration"
-        />
+      <div class="input-base">
+        <p-textarea label="Mensagem" v-model="toastMessage"></p-textarea>
       </div>
     </div>
-
-    <div class="buttons-container">
-      <button class="btn btn-error" @click="closeAllToasts">
-        Fechar Todos
-      </button>
-      <button class="btn" @click="showToast">Mostrar Toast</button>
-      <button class="btn" @click="showAllToast">Mostrar Todos Toasts</button>
+    <div class="playground-action">
+      <p-btn color="#FE5050" @click="closeAllToasts">Fechar toast</p-btn>
+      <p-btn color="#00F391" @click="showAllToast">Mostrar todos toasts</p-btn>
+      <p-btn color="#5093FE" @click="showToast">Mostrar toast</p-btn>
     </div>
-
-    <!-- <div class="code-container">
-      <pre v-html="generateCode"></pre>
-    </div> -->
-     <div class="code-container">
+    <div class="code-container">
       <code>
-        <span>this.$btoast("</span>
-        <span class="highlight">{{this.toastMessage}}</span>
+        <span>this.$<span class="highlight">btoast</span>("</span>
+        <span class="highlight">{{ this.toastMessage }}</span>
         <span>",{</span>
-        <br>
+        <br />
         <span>&nbsp;&nbsp;type: </span>
-        <span class="highlight">{{this.selectedType}}</span>
+        <span class="highlight">{{ this.selectedType }}</span>
         <span>,</span>
-        <br>
+        <br />
         <span>&nbsp;&nbsp;duration: </span>
-        <span class="highlight">{{this.toastDuration}}</span>
+        <span class="highlight">{{ this.cmpSec * 1000 }}</span>
         <span>,</span>
-        <br>
+        <br />
         <span>&nbsp;&nbsp;isDark: </span>
-        <span class="highlight">{{this.darkMode}}</span>
-        <br>
+        <span class="highlight">{{ this.theme === "dark" }}</span>
+        <br />
         <span>});</span>
       </code>
     </div>
@@ -68,37 +60,53 @@
 </template>
 
 <script>
+import pSelect from "./components/p-select.vue";
+import pTextarea from "./components/p-textarea.vue";
+import pSlider from "./components/p-slider.vue";
+import pBtn from "./components/p-btn.vue";
 export default {
+  components: {
+    pSelect,
+    pTextarea,
+    pSlider,
+    pBtn,
+  },
   data() {
     return {
       selectedType: "success",
-      darkMode: false,
+      theme: "light",
       toastMessage: "Exemplo de toast",
-      toastDuration: 3000,
+      toastDurationSec: 50,
+      position: "top-right",
     };
   },
+  computed: {
+    cmpSec() {
+      return this.toastDurationSec / 10;
+    },
+  },
   methods: {
-    showAllToast(){
+    showAllToast() {
       this.$btoast("Exemplo de toast sucesso", {
         type: "success",
       });
       this.$btoast("Exemplo de toast erro", {
         type: "error",
-        isDark:false
+        isDark: false,
       });
       this.$btoast("Exemplo de toast warning", {
         type: "warning",
       });
       this.$btoast("Exemplo de toast info", {
         type: "info",
-        isDark:false
+        isDark: false,
       });
     },
     showToast() {
       this.$btoast(this.toastMessage, {
         type: this.selectedType,
-        duration: this.toastDuration,
-        isDark: this.darkMode,
+        duration: this.cmpSec * 1000,
+        isDark: this.theme === "dark",
       });
     },
     closeAllToasts() {
@@ -108,80 +116,62 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  background: #161922;
+  color: white;
+}
+
 .playground-container {
-  font-family: Arial, sans-serif;
-  max-width: 500px;
+  height: 100vh;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
+  padding: 60px 70px;
 }
-
-.dark-mode {
-  background-color: #333;
-  color: #fff;
+.playground-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 50px;
 }
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.options-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.option {
-  flex-basis: 48%;
-  margin-bottom: 10px;
-}
-
-.option label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.buttons-container {
+.plaground-inputs {
   display: flex;
   justify-content: space-between;
+}
+
+.plaground-inputs .input-base {
+  width: 33%;
+}
+.margin-bottom {
   margin-bottom: 20px;
 }
-
-.btn {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.slider-select p {
+  width: min-content;
+  margin: 0;
+  text-align: end;
 }
-.btn-error {
-  background: #ff0000;
+.playground-action {
+  margin-top: 50px;
 }
-
-.btn:hover {
-  background-color: #0056b3;
+.playground-action button {
+  margin-right: 30px;
 }
-.btn-error:hover {
-  background: #8d0101;
-}
-
 .code-container {
-  background-color: #161616;
+  margin-top: 50px;
+  padding: 35px 40px;
+  height: 300px;
+  background-color: #252831;
   color: #ffffff;
-  padding: 10px;
   border-radius: 5px;
   overflow: auto;
   white-space: pre-wrap;
+  font-size: 20px;
 }
 
 code {
@@ -189,8 +179,38 @@ code {
   font-family: monospace;
 }
 .highlight {
-  color: #007bff;
-  font-weight: bold;
+  color: #5093fe;
+  font-weight: 600;
 }
 
+@media only screen and (max-width: 1000px) {
+  .plaground-inputs {
+    flex-direction: column;
+  }
+  .plaground-inputs .input-base {
+    width: 100%;
+  }
+  .p-input__component,
+  .p-textarea__input {
+    width: 360px !important;
+  }
+  .playground-title {
+    font-size: 25px;
+    text-align: center;
+  }
+  .playground-container {
+    padding: 10px 6px;
+    height: auto;
+  }
+  .playground-action {
+    text-align: center;
+  }
+  .playground-action button {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .code-container {
+    font-size: 16px;
+  }
+}
 </style>
