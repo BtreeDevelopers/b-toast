@@ -22,5 +22,6 @@ export default {
   font-weight: 500;
   font-size: 18px;
   border-radius: 3px;
+  cursor: pointer;
 }
 </style>

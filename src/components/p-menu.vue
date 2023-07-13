@@ -7,7 +7,7 @@
       include: () => [...allChildren()],
     }"
   >
-    <div class="component" ref="activator" @click="showMenu = !showMenu">
+    <div class="component" ref="activator" @click="apt">
       <slot></slot>
     </div>
 
@@ -97,6 +97,10 @@ export default {
     },
   },
   methods: {
+    apt() {
+      console.log("aa");
+      this.showMenu = !this.showMenu;
+    },
     calcLeft() {
       this.$nextTick(() => {
         const activatorWidth = this.$refs.activator.clientWidth;

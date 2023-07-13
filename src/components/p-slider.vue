@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="`width: ${width} `">
     <div class="p-slider__base-label">
       <label class="p-slider__label" v-if="label">{{ label }}</label>
     </div>
@@ -54,6 +54,9 @@ export default {
     },
     step: {
       default: 1,
+    },
+    width: {
+      default: "380px",
     },
   },
   data: () => ({
@@ -215,7 +218,6 @@ export default {
   .slider {
     position: relative;
     height: 20px;
-    margin: 0 10px;
     .transition-duration {
       transition-duration: 0.3s !important;
     }

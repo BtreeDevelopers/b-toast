@@ -22,8 +22,12 @@
           v-model="theme"
           :items="['dark', 'light']"
         ></p-select>
-        <p-slider v-model="toastDurationSec" label="Duração"></p-slider>
-        <div class="slider-select">
+        <p-slider
+          v-model="toastDurationSec"
+          label="Duração"
+          width="380px"
+        ></p-slider>
+        <div class="slider-select" style="width: 380px">
           <p :style="{ width: toastDurationSec + 3 + '%' }">{{ cmpSec }}s</p>
         </div>
       </div>

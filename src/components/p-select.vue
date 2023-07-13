@@ -12,7 +12,7 @@
         :label="label"
         :value="value"
         @input="(e) => $emit('input', e)"
-        disabled
+        readonly
         :icon-left="show ? 'arrow-up' : 'arrow-down'"
       ></p-text-field>
       <template slot="menu">
@@ -74,6 +74,7 @@ export default {
       padding-left: 20px;
       padding-bottom: 15px;
       padding-top: 15px;
+      border-radius: 10px;
       &:hover,
       &.selected {
         background-color: #161922;

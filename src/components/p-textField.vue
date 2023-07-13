@@ -7,6 +7,7 @@
       <input
         :type="type"
         :disabled="disabled"
+        :readonly="readonly"
         @input="(e) => $emit('input', e.target.value)"
         :value="value"
       />
@@ -25,6 +26,7 @@ export default {
   props: {
     value: undefined,
     disabled: Boolean,
+    readonly: Boolean,
     label: String,
     type: {
       default: "text",
