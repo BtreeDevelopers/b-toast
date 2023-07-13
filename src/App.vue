@@ -22,13 +22,15 @@
           v-model="theme"
           :items="['dark', 'light']"
         ></p-select>
-        <p-slider
-          v-model="toastDurationSec"
-          label="Duração"
-          width="380px"
-        ></p-slider>
-        <div class="slider-select" style="width: 380px">
-          <p :style="{ width: toastDurationSec + 3 + '%' }">{{ cmpSec }}s</p>
+        <div class="select-base">
+          <p-slider
+            v-model="toastDurationSec"
+            label="Duração"
+            width="380px"
+          ></p-slider>
+          <div class="slider-select">
+            <p :style="{ width: toastDurationSec + 3 + '%' }">{{ cmpSec }}s</p>
+          </div>
         </div>
       </div>
       <div class="input-base">
@@ -152,6 +154,9 @@ body {
 .plaground-inputs .input-base {
   width: 33%;
 }
+.plaground-inputs .input-base:not(:nth-child(3)) {
+  margin-right: 30px;
+}
 .margin-bottom {
   margin-bottom: 20px;
 }
@@ -163,7 +168,7 @@ body {
 .playground-action {
   margin-top: 50px;
 }
-.playground-action button {
+.playground-action button:not(:nth-child(3)) {
   margin-right: 30px;
 }
 .code-container {
@@ -186,18 +191,26 @@ code {
   color: #5093fe;
   font-weight: 600;
 }
-
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 900px) {
+  .playground-container {
+    padding: 20px 30px;
+  }
+  .playground-action button:not(:nth-child(3)) {
+    margin-right: 15px;
+  }
+  .code-container {
+    height: auto;
+  }
+}
+@media only screen and (max-width: 750px) {
   .plaground-inputs {
     flex-direction: column;
   }
   .plaground-inputs .input-base {
     width: 100%;
+    margin-right: 0;
   }
-  .p-input__component,
-  .p-textarea__input {
-    width: 360px !important;
-  }
+
   .playground-title {
     font-size: 25px;
     text-align: center;

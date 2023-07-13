@@ -31,7 +31,7 @@ export default {
     color: white;
     border: none;
     border-radius: 8px;
-    width: 380px;
+    width: 100%;
     height: 165px;
     resize: none;
     font-size: 17px;

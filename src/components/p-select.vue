@@ -53,6 +53,7 @@ export default {
 <style lang="scss">
 .p-select {
   display: inline-block;
+  width: 100%;
   .p-select__menu {
     &.isShow .component {
       z-index: 6;

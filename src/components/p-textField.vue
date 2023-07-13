@@ -49,11 +49,13 @@ export default {
   }
   .p-input__component {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
     background: #252831;
     border: none;
     border-radius: 8px;
-    width: 380px;
+    width: 100%;
     &:focus-visible,
     &:hover {
       outline: 2px solid #5093fe;
@@ -63,7 +65,7 @@ export default {
       outline: none;
       background: transparent;
       color: white;
-      width: 300px;
+      width: 100%;
       padding: 15px 10px;
       font-size: 24px;
       caret-color: #5093fe;
