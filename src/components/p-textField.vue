@@ -69,6 +69,7 @@ export default {
       padding: 15px 10px;
       font-size: 24px;
       caret-color: #5093fe;
+      pointer-events: none;
       &:focus-visible,
       &:hover {
         outline: none;

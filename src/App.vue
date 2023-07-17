@@ -216,7 +216,7 @@ code {
     text-align: center;
   }
   .playground-container {
-    padding: 10px 6px;
+    padding: 25px;
     height: auto;
   }
   .playground-action {
