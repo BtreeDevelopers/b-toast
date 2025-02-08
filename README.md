@@ -6,6 +6,10 @@ O `b-toast` é uma biblioteca de toasts simples e personalizáveis para Vue 2. E
 
 ![](./example.gif)
 
+## Vue 3
+
+Versão do `b-toast` para vue 3 está (disponivel)[https://github.com/BtreeDevelopers/b-toast]
+
 ## Recursos
 
 - Exibe notificações de estilo toast de forma simples e elegante.
@@ -24,7 +28,7 @@ Precisa de exemplos: [demonstração](https://btreedevelopers.github.io/b-toast/
 ## Instalação
 
 ```bash
-$ npm install b-toast
+$ npm install b-toast@1.X
 ```
 
 ## Uso
