@@ -1,48 +1,51 @@
 {
   "name": "b-toast",
-  "version": "1.0.0",
   "private": false,
-  "main": "./dist/bToast.common.js",
+  "version": "2.0.1",
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "build:npm": "vue-cli-service build --target lib --name bToast src/index.js",
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "build:page": "vue-tsc && vite build --config vitebuild.config.ts",
+    "preview": "vite preview",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "files": [
-    "dist/*",
-    "index.d.ts",
-    "src/assets/*",
-    "src/components/toast/*"
+    "dist"
   ],
-  "types": "index.d.ts",
-  "homepage": "btreedevelopers.github.io/b-toast/",
-  "license": "MIT",
-  "author": "btree <btreedevs@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BtreeDevelopers/b-toast"
   },
+  "homepage": "https://btreedevelopers.github.io/b-toast/",
+  "license": "MIT",
+  "author": "btree <btreedevs@gmail.com>",
   "keywords": [
     "pine",
+    "b-toast",
     "toast",
     "vue3",
     "vue",
     "vuejs"
   ],
+  "main": "./dist/b-toast.umd.cjs",
+  "module": "./dist/b-toast.js",
+  "types": "./dist/package/index.d.ts",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
   "dependencies": {
-    "feather-icons": "^4.29.0",
-    "vue": "^2.6.14",
-    "vue-feather": "^1.1.1"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "sass": "^1.32.7",
-    "sass-loader": "^12.0.0",
-    "vue-template-compiler": "^2.6.14"
+    "@types/node": "^22.13.1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "sass-embedded": "^1.83.4",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0",
+    "vite-plugin-dts": "^4.5.0",
+    "vite-plugin-lib-inject-css": "^2.2.1",
+    "vue-tsc": "^2.2.0"
   }
 }
