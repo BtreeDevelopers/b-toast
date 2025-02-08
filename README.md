@@ -1,4 +1,4 @@
-# b-toast
+# bToast - Vue 3
 
 > Uma biblioteca de toasts para Vue 3
 
@@ -8,7 +8,7 @@ O `b-toast` é uma biblioteca de toasts simples e personalizáveis para Vue 3. E
 
 # Vue 2
 
-O bToast tambem é oferecido para Vue pela branch [V1](https://github.com/BtreeDevelopers/b-toast/tree/v2)
+O bToast tambem é oferecido para Vue 2 pela branch [V1](https://github.com/BtreeDevelopers/b-toast/tree/V1)
 
 ## Recursos
 
@@ -83,8 +83,9 @@ Aqui estão as propriedades disponíveis para o componente `b-toast`:
 | Atributo |  Tipo   |  Inicial  | Descrição                                                                                                                       |
 | :------- | :-----: | :-------: | :------------------------------------------------------------------------------------------------------------------------------ |
 | content  | String  |    --     | Define o conteúdo no toast. (requerido)                                                                                         |
-| type     | String  | `success` | Oefine o tipo de toast. Pode ser `success`, `error`, `warning`, `info`, ou qualquer outro tipo personalizado.                   |
-| duration | Number  |  `3000`   | Define a duração em milissegundos que o toast ficará visível antes de ser fechado automaticamente. Padrão: `5000` (5 segundos). |
+| type     | String  | `success` | Define o tipo de toast. Pode ser `success`, `error`, `warning`, `info`.                                                         |
+| title    | String  |    --     | Inserir um titulo personalizado ao toast.                                                                                       |
+| duration | Number  |  `5000`   | Define a duração em milissegundos que o toast ficará visível antes de ser fechado automaticamente. Padrão: `5000` (5 segundos). |
 | isDark   | Boolean |  `false`  | Define o tema padrão do toast. Padrão: `false`.                                                                                 |
 
 ## Design Baseado em Pine UI
