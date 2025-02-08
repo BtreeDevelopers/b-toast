@@ -8,7 +8,7 @@ O `b-toast` é uma biblioteca de toasts simples e personalizáveis para Vue 2. E
 
 ## Vue 3
 
-Versão do `b-toast` para vue 3 está (disponivel)[https://github.com/BtreeDevelopers/b-toast]
+Versão do `b-toast` para vue 3 está [disponivel](https://github.com/BtreeDevelopers/b-toast)
 
 ## Recursos
 
