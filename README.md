@@ -1,17 +1,21 @@
 # b-toast
 
-> Uma biblioteca de toasts para Vue 2
+> Uma biblioteca de toasts para Vue 3
 
-O `b-toast` é uma biblioteca de toasts simples e personalizáveis para Vue 2. Ele fornece um componente Vue fácil de usar para exibir notificações no estilo toast em seu aplicativo.
+O `b-toast` é uma biblioteca de toasts simples e personalizáveis para Vue 3. Ele fornece um componente Vue fácil de usar para exibir notificações no estilo toast em seu aplicativo.
 
 ![](./example.gif)
+
+# Vue 2
+
+O bToast tambem é oferecido para Vue pela branch [V2](https://github.com/BtreeDevelopers/b-toast/tree/v2)
 
 ## Recursos
 
 - Exibe notificações de estilo toast de forma simples e elegante.
 - Personalizável para atender às necessidades do seu aplicativo.
 - Suporte a tipos de toasts: sucesso, erro, aviso, informativo, etc.
-- Fácil integração com projetos Vue 2 existentes.
+- Fácil integração com projetos Vue 3 existentes.
 
 ## NPM
 
@@ -19,7 +23,7 @@ https://www.npmjs.com/package/b-toast
 
 ## Demonstração
 
-Precisa de exemplos: [demonstração](https://btreedevelopers.github.io/b-toast/)
+Precisa de exemplos: `DEMO PENDENTE`
 
 ## Instalação
 
@@ -34,67 +38,43 @@ $ npm install b-toast
 Registre o componente `b-toast` globalmente em seu aplicativo Vue:
 
 ```javascript
-import Vue from "vue";
-import bToast from "b-toast";
-// Importe o css do Toast
-import "b-toast/dist/bToast.css";
+// main.js ou main.ts
+import { createApp } from "vue";
+import App from "./App.vue";
+import pine from "pine-btree";
 
-const options = {
-  // Você pode setar as opções padrões aqui
-};
+const app = createApp(App);
 
-Vue.use(bToast, options);
+app.use(pine);
+app.mount("#app");
 ```
 
 Em seguida, você pode usar o componente `b-toast` em qualquer lugar em seu aplicativo:
 
 ```javascript
-this.$btoast("Olá sou um toast!");
+import { useToast } from "b-toast";
+const toast = useToast();
+toast.show("Olá sou um toast!");
 
 // Ou com opções
-const id = this.$btoast("Conteúdo do toast", {
+const id = toast.show("Conteúdo do toast", {
   isDark: true,
 });
 // Ao invocar o toast, é retornado um ID único que
 // pode ser usado para removê-lo da tela, se necessário.
 
 //Removendo todos os toasts
-this.$btoast.clear();
+toast.clear();
 
 //Removendo um dos toasts (por id)
-this.$btoast.dismiss(id);
+toast.dismiss(id);
 ```
 
-Também é possivel utilizar pela instância do Vue:
+#### `toast.show(conteudo,?props)`
 
-```javascript
-this.$btoast("Olá sou um toast!");
+#### `toast.clear()`
 
-// Ou com opções
-const id = Vue.prototype.$btoast("Conteúdo do toast", {
-  type: "error",
-});
-// Ao invocar o toast, é retornado um ID único que
-// pode ser usado para removê-lo da tela, se necessário.
-
-//Removendo todos os toasts
-Vue.prototype.$btoast.clear();
-
-//Removendo um dos toasts (por id)
-Vue.prototype.$btoast.dismiss(id);
-```
-
-#### `this.$btoast(conteudo,?props)`
-
-#### `this.$btoast.clear()`
-
-#### `this.$toast.dismiss(id)`
-
-#### `Vue.prototype.$btoast(conteudo,?props)`
-
-#### `Vue.prototype.$btoast.clear()`
-
-#### `Vue.prototype.$btoast.dismiss(id)`
+#### `toast.dismiss(id)`
 
 ## Props
 
