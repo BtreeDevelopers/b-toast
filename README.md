@@ -8,7 +8,7 @@ O `b-toast` é uma biblioteca de toasts simples e personalizáveis para Vue 3. E
 
 # Vue 2
 
-O bToast tambem é oferecido para Vue pela branch [V2](https://github.com/BtreeDevelopers/b-toast/tree/v2)
+O bToast tambem é oferecido para Vue pela branch [V1](https://github.com/BtreeDevelopers/b-toast/tree/v2)
 
 ## Recursos
 
@@ -28,7 +28,7 @@ Precisa de exemplos: `DEMO PENDENTE`
 ## Instalação
 
 ```bash
-$ npm install b-toast@1.X
+$ npm install b-toast
 ```
 
 ## Uso
@@ -41,11 +41,11 @@ Registre o componente `b-toast` globalmente em seu aplicativo Vue:
 // main.js ou main.ts
 import { createApp } from "vue";
 import App from "./App.vue";
-import pine from "pine-btree";
+import btoast from "b-toast";
 
 const app = createApp(App);
 
-app.use(pine);
+app.use(btoast);
 app.mount("#app");
 ```
 

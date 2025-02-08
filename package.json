@@ -1,7 +1,7 @@
 {
   "name": "b-toast",
   "private": false,
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,8 +28,8 @@
     "vue",
     "vuejs"
   ],
-  "main": "./dist/pine.umd.cjs",
-  "module": "./dist/pine.js",
+  "main": "./dist/b-toast.umd.cjs",
+  "module": "./dist/b-toast.js",
   "types": "./dist/package/index.d.ts",
   "peerDependencies": {
     "vue": "^3.0.0"

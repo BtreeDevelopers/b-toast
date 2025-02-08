@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
 import { useToast } from "./package"
 const toast = useToast();
 
