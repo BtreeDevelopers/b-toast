@@ -28,7 +28,7 @@ Precisa de exemplos: `DEMO PENDENTE`
 ## Instalação
 
 ```bash
-$ npm install b-toast
+$ npm install b-toast@1.X
 ```
 
 ## Uso
